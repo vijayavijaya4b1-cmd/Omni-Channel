@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Viewport meta tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<title>Magnum | Consumer Care</title>
+<!-- Basic Styling -->
+<style>
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #111;
+
+            color: #fff;
+
+        }
+
+        .container {
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 40px 20px;
+
+            text-align: center;
+
+        }
+
+        h1 {
+
+            color: #d4af37; /* Magnum Gold */
+
+        }
+
+        .options {
+
+            display: flex;
+
+            gap: 20px;
+
+            margin-top: 40px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+        }
+
+        .card {
+
+            background: #1c1c1c;
+
+            padding: 25px;
+
+            border-radius: 8px;
+
+            width: 380px;
+
+        }
+
+        .card h2 {
+
+            color: #d4af37;
+
+        }
+
+        .btn {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 12px 20px;
+
+            background: #d4af37;
+
+            color: #000;
+
+            text-decoration: none;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+
+        }
+
+        form {
+
+            margin-top: 15px;
+
+            text-align: left;
+
+        }
+
+        label {
+
+            display: block;
+
+            margin-top: 10px;
+
+            font-size: 14px;
+
+        }
+
+        input, textarea {
+
+            width: 100%;
+
+            padding: 10px;
+
+            margin-top: 5px;
+
+            border-radius: 4px;
+
+            border: none;
+
+        }
+
+        textarea {
+
+            resize: vertical;
+
+        }
+
+        footer {
+
+            margin-top: 50px;
+
+            font-size: 12px;
+
+            color: #aaa;
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Magnum Consumer Care</h1>
+<p>
+
+            We’re here to help! Reach out to us for product queries, quality concerns,
+
+            feedback, or compliments.
+</p>
+<div class="options">
+<!-- Chat Option -->
+<div class="card">
+<h2>Chat with Us</h2>
+<p>
+
+                    Get instant support from our virtual assistant or connect
+
+                    with a Magnum Care expert.
+</p>
+</div>
+<!-- Contact Us Form -->
+<div class="card">
+<h2>Contact Us</h2>
+<form action="#" method="post">
+<label for="name">Full Name</label>
+<input type="text" id="name" name="name" required>
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" required>
+<label for="country">Country</label>
+<input type="text" id="country" name="country">
+<label for="message">Your Message</label>
+<textarea id="message" name="message" rows="4" required></textarea>
+<!-- Salesforce Web-to-Case can be integrated here -->
+<button type="submit" class="btn">Submit</button>
+</form>
+</div>
+</div>
+<footer>
+
+            © 2026 Magnum. All rights reserved.
+</footer>
+</div>
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DgL00000MWScP',
+				'Messaging_for_Web',
+				'https://orgfarm-2865190998-dev-ed.develop.my.site.com/ESWMessagingforWeb1772420501075',
+				{
+					scrt2URL: 'https://orgfarm-2865190998-dev-ed.develop.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://orgfarm-2865190998-dev-ed.develop.my.site.com/ESWMessagingforWeb1772420501075/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
+</html>
+ 
