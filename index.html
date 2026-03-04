@@ -116,7 +116,7 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-		chatButton.addEventListener("click", function() {
+		window.addEventListener("click", function() {
 	embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		"Country":"India"
 	});
