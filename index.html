@@ -113,25 +113,7 @@
 </footer>
 </div>
 <script type='text/javascript'>
-	// Listen for Embedded Messaging ready
-window.addEventListener("onEmbeddedMessagingReady", () => {
-
-    // Detect country via IP
-    fetch('https://ipapi.co/country_name/')
-        .then(res => res.text())
-        .then(country => {
-            // Set hidden pre-chat field "Country"
-            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                "Country": country
-            });
-        })
-        .catch(() => {
-            // Fallback if detection fails
-            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                "Country": "India"
-            });
-        });
-});
+	
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
@@ -144,6 +126,27 @@ window.addEventListener("onEmbeddedMessagingReady", () => {
 					scrt2URL: 'https://orgfarm-2865190998-dev-ed.develop.my.salesforce-scrt.com'
 				}
 			);
+			// Call country detection when messaging is ready
+        window.addEventListener("onEmbeddedMessagingReady", () => {
+            // Function to detect country and set hidden field
+            function setCountryPrechat() {
+                fetch('https://ipapi.co/country_name/')
+                    .then(res => res.text())
+                    .then(country => {
+                        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                            "Country": country
+                        });
+                    })
+                    .catch(() => {
+                        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                            "Country": "India" // fallback
+                        });
+                    });
+            }
+
+            // Call the function
+            setCountryPrechat();
+        });
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
