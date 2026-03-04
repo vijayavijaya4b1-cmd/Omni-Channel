@@ -113,6 +113,32 @@
 </footer>
 </div>
 <script type='text/javascript'>
+	// 1. LISTEN FOR MESSAGING READY TO PASS HIDDEN DATA
+    window.addEventListener("onEmbeddedMessagingReady", () => {
+        console.log("Salesforce Messaging is ready. Fetching location...");
+        // Fetch the Country Name based on IP
+        fetch('https://ipapi.co/country_name/')
+            .then(response => response.text())
+            .then(country => {
+                console.log("Detected Country: " + country);
+                // Update the visible "Country" field in your static form just for show
+                const displayField = document.getElementById('country_display');
+                if(displayField) displayField.value = country;
+ 
+                // PASS THE DATA TO SALESFORCE
+                // Ensure "Country" is mapped in Salesforce Messaging Settings -> Parameter Mappings
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                    "Country": country
+                });
+            })
+            .catch(error => {
+                console.error("Location detection failed:", error);
+                // Fallback to UK if API fails
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                    "Country": "USA"
+                });
+            });
+    });
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
