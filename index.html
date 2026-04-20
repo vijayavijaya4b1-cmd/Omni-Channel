@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,146 +9,149 @@
 <title>Magnum | Consumer Care</title>
 <!-- Basic Styling -->
 <style>
-       body {
-           margin: 0;
-           font-family: Arial, Helvetica, sans-serif;
-           background: #111;
-           color: #fff;
-       }
-       .container {
-           max-width: 900px;
-           margin: 0 auto;
-           padding: 40px 20px;
-           text-align: center;
-       }
-       h1 {
-           color: #d4af37; /* Magnum Gold */
-       }
-       .options {
-           display: flex;
-           gap: 20px;
-           margin-top: 40px;
-           flex-wrap: wrap;
-           justify-content: center;
-       }
-       .card {
-           background: #1c1c1c;
-           padding: 25px;
-           border-radius: 8px;
-           width: 380px;
-       }
-       .card h2 {
-           color: #d4af37;
-       }
-       .btn {
-           display: inline-block;
-           margin-top: 15px;
-           padding: 12px 20px;
-           background: #d4af37;
-           color: #000;
-           text-decoration: none;
-           border-radius: 4px;
-           font-weight: bold;
-       }
-       form {
-           margin-top: 15px;
-           text-align: left;
-       }
-       label {
-           display: block;
-           margin-top: 10px;
-           font-size: 14px;
-       }
-       input, textarea {
-           width: 100%;
-           padding: 10px;
-           margin-top: 5px;
-           border-radius: 4px;
-           border: none;
-       }
-       textarea {
-           resize: vertical;
-       }
-       footer {
-           margin-top: 50px;
-           font-size: 12px;
-           color: #aaa;
-       }
+       body {
+           margin: 0;
+           font-family: Arial, Helvetica, sans-serif;
+           background: #111;
+           color: #fff;
+       }
+       .container {
+           max-width: 900px;
+           margin: 0 auto;
+           padding: 40px 20px;
+           text-align: center;
+       }
+       h1 {
+           color: #d4af37; /* Magnum Gold */
+       }
+       .options {
+           display: flex;
+           gap: 20px;
+           margin-top: 40px;
+           flex-wrap: wrap;
+           justify-content: center;
+       }
+       .card {
+           background: #1c1c1c;
+           padding: 25px;
+           border-radius: 8px;
+           width: 380px;
+       }
+       .card h2 {
+           color: #d4af37;
+       }
+       .btn {
+           display: inline-block;
+           margin-top: 15px;
+           padding: 12px 20px;
+           background: #d4af37;
+           color: #000;
+           text-decoration: none;
+           border-radius: 4px;
+           font-weight: bold;
+       }
+       form {
+           margin-top: 15px;
+           text-align: left;
+       }
+       label {
+           display: block;
+           margin-top: 10px;
+           font-size: 14px;
+       }
+       input, textarea {
+           width: 100%;
+           padding: 10px;
+           margin-top: 5px;
+           border-radius: 4px;
+           border: none;
+       }
+       textarea {
+           resize: vertical;
+       }
+       footer {
+           margin-top: 50px;
+           font-size: 12px;
+           color: #aaa;
+       }
 </style>
 </head>
 <body>
 <div class="container">
 <h1>Magnum Consumer Care</h1>
 <p>
-           We’re here to help! Reach out to us for product queries, quality concerns,
-           feedback, or compliments.
+           We’re here to help! Reach out to us for product queries, quality concerns,
+           feedback, or compliments.
 </p>
 <div class="options">
 <!-- Chat Option -->
 <div class="card">
 <h2>Chat with Us</h2>
 <p>
-                   Get instant support from our virtual assistant or connect
-                   with a Magnum Care expert.
+                   Get instant support from our virtual assistant or connect
+                   with a Magnum Care expert.
 </p>
 </div>
 <!-- Contact Us Form -->
 <div class="card">
 <h2>Contact Us</h2>
-<a href="https://orgfarm-d715c14531-dev-ed.develop.my.site.com/s/contact-us?language=es&brand=Magnum&country=India" 
-   class="btn" 
-   target="_blank">
-   Open Contact Form
-</a>
+<button class="btn" onclick="openForm()">
+    Contact Us Form
+</button>
 
+ 
+
+<script>
+function openForm() {
+    const url = "https://energy-drive-7864--cecdev1.sandbox.my.site.com/s/contact-us";
+    const newWindow = window.open(url, "_blank");
+    const data = {
+        language: 'EN',
+        brand: 'Magnum',
+        country: 'GB',
+        styles: {
+            primaryColor: '#ff6600',
+            fontFamily: 'Arial, sans-serif'
+        }
+    };
+    setTimeout(() => {
+        newWindow.postMessage(data, "https://energy-drive-7864--cecdev1.sandbox.my.site.com");
+    }, 2000); 
+}
+</script>
 </div>
 </div>
 <footer>
-           © 2026 Magnum. All rights reserved.
+           © 2026 Magnum. All rights reserved.
 </footer>
 </div>
 <script type='text/javascript'>
-	
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
+  function initEmbeddedMessaging() {
+    try {
+      embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			embeddedservice_bootstrap.init(
-				'00DgL00000MWScP',
-				'Guest_Web_Messaging',
-				'https://orgfarm-2865190998-dev-ed.develop.my.site.com/ESWGuestWebMessaging1772532637521',
-				{
-					scrt2URL: 'https://orgfarm-2865190998-dev-ed.develop.my.salesforce-scrt.com'
-				}
-			);
-			// Call country detection when messaging is ready
-        window.addEventListener("onEmbeddedMessagingReady", () => {
-            // Function to detect country and set hidden field
-            function setCountryPrechat() {
-                fetch('https://ipapi.co/country_name/')
-                    .then(res => res.text())
-                    .then(country => {
-                        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                            "Country": country
-                        });
-                    })
-                    .catch(() => {
-                        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                            "Country": "USA" // fallback
-                        });
-                    });
-            }
+ 
 
-            // Call the function
-            setCountryPrechat();
-        });
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
+      window.addEventListener("onEmbeddedMessagingReady", () => {
+          embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Country": "UK"});
+         });
+
+ 
+
+      embeddedservice_bootstrap.init(
+        '00Dfj00000L6RFx',
+        'Live_Agent',
+        'https://orgfarm-62b30aeaf8-dev-ed.develop.my.site.com/ESWLiveAgent1772535765935',
+        {
+          scrt2URL: 'https://orgfarm-62b30aeaf8-dev-ed.develop.my.salesforce-scrt.com'
+        }
+      );
+    } catch (err) {
+      console.error('Error loading Embedded Messaging: ', err);
+    }
+  };
 </script>
-<script type='text/javascript' src='https://orgfarm-2865190998-dev-ed.develop.my.site.com/ESWGuestWebMessaging1772532637521/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
-
+<script type='text/javascript' src='https://orgfarm-62b30aeaf8-dev-ed.develop.my.site.com/ESWLiveAgent1772535765935/assets/js/bootstrap… onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
+
